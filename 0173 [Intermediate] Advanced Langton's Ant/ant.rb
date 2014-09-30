@@ -24,7 +24,7 @@ class Square
   end
 end
 
-def print_squares(squares)
+def print_grid(squares)
   squares.each do |squareLn|
     squareLn.each { |s| print s.to_s }
     puts
@@ -70,4 +70,4 @@ while steps > 0 do
   ant[:y] %= size
   steps -= 1
 end
-print_squares(squares)
+print_grid(squares)
