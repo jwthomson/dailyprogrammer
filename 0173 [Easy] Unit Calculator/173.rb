@@ -18,7 +18,8 @@ def fix_hogs!(arr, idx)
   end
 end
 
-puts "Enter your conversion"
+puts "Enter your conversion in the form \"5 metres to miles\""
+puts "Valid units:", lens.keys.join(", "), weis.keys.join(", ")
 inp = gets.chomp.split
 fix_hogs!(inp, 1)
 fix_hogs!(inp, 3)
@@ -29,5 +30,5 @@ if val then
   puts inp[0] + " " + inp[1] + " is " + val.to_s + " " + inp[3]
 else
   puts inp[0] + " " + inp[1] + " cannot be converted to  " + inp[3]
-  puts "please enter in the full name of the unit, amd always use the plural form"
+  puts "please enter in the full name of the unit, and always use the plural form"
 end

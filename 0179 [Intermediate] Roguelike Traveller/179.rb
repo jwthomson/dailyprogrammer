@@ -21,10 +21,10 @@ def play()
   score = 0
   player = [10, 10]
   move_list = {
-    "w" => [-1, +0],
-    "a" => [+0, -1],
-    "s" => [+1, +0],
-    "d" => [+0, +1]
+    "w" => [-1,  0],
+    "a" => [ 0, -1],
+    "s" => [+1,  0],
+    "d" => [ 0, +1]
   }
   level = generate_level(20)
   level[player[0]][player[1]] = "@"
