@@ -1,5 +1,5 @@
 local function markov_state(value)
-  if value == nil then return end
+  if value == nil then return nil end
   
   local s = {}
   s.value = value
@@ -7,7 +7,7 @@ local function markov_state(value)
   s.count = 0
 
   s.set_weight = function(k, v)
-    if k == nil then return end
+    if k == nil or (v~= nil and type(v) ~= "number") then return end
 
     local diff = (s.weights[k] ~= nil and (v - s.weights[k]) or v)
     s.count = s.count + diff
@@ -15,7 +15,9 @@ local function markov_state(value)
   end
 
   s.inc_weight = function(k, v)
-    if k == nil or v == nil then return end
+    if k == nil or v == nil or type(k) ~= "table" or type(v) ~= "number" then
+      return
+    end
 
     local old = (s.weights[k] ~= nil and s.weights[k] or 0)
     s.count = s.count + v
