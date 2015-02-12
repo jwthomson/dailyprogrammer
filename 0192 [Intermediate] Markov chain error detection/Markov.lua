@@ -7,7 +7,9 @@ local function markov_state(value)
   s.count = 0
 
   s.set_weight = function(k, v)
-    if k == nil or (v~= nil and type(v) ~= "number") then return end
+    if k == nil or (v~= nil and type(v) ~= "number") then
+      return
+    end
 
     local diff = (s.weights[k] ~= nil and (v - s.weights[k]) or v)
     s.count = s.count + diff
